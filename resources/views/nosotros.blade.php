@@ -11,7 +11,7 @@ body{
     color:white;
 }
 
-/* sección historia */
+
 .historia{
     background:#1c1c1c;
     padding:40px;
@@ -19,20 +19,20 @@ body{
     margin-bottom:40px;
 }
 
-/* titulo */
+
 h2{
     color:#ff7b00;
     font-weight:bold;
 }
 
-/* formulario */
+
 .card{
     background:#1a1a1a;
     border:none;
     border-radius:10px;
 }
 
-/* inputs */
+
 .form-control, .form-select{
     background:#2b2b2b;
     border:none;
@@ -44,7 +44,7 @@ h2{
     color:white;
 }
 
-/* boton */
+
 .btn-dark{
     background:linear-gradient(45deg,#ff7b00,#ff3c00);
     border:none;
@@ -94,47 +94,50 @@ h2{
     <div class="col-md-8">
         <div class="card shadow p-4">
 
-            <form>
+            <form action="{{ route('pqrs.store') }}" method="POST">
+                 @csrf
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Nombres</label>
-                        <input type="text" class="form-control">
+                       <input type="text" name="nombres" class="form-control" value="{{ old('nombres') }}">
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label>Apellidos</label>
-                        <input type="text" class="form-control">
+                        <input type="text" name="apellidos" class="form-control" value="{{ old('apellidos') }}">
                     </div>
-                </div>
+                </div> 
 
                 <div class="mb-3">
                     <label>Correo electrónico</label>
-                    <input type="email" class="form-control">
+                    
+                    <input type="email" name="correo" class="form-control" value="{{ old('correo') }}">
                 </div>
 
                 <div class="mb-3">
                     <label>Tipo de solicitud</label>
-                    <select class="form-select">
-                        <option>Queja</option>
-                        <option>Petición</option>
-                        <option>Felicitación</option>
-                    </select>
+                          <select name="tipo" class="form-select">
+    <option value="Queja">Queja</option>
+    <option value="Peticion">Petición</option>
+    <option value="Felicitacion">Felicitación</option>
+</select>
                 </div>
 
                 <div class="mb-3">
                     <label>Mensaje</label>
-                    <textarea class="form-control" rows="4"></textarea>
+                    <textarea name="mensaje" class="form-control" rows="4"></textarea>
                 </div>
+                
 
                 <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox">
+                    <input class="form-check-input" type="checkbox" name="acepto">
                     <label class="form-check-label">
                         Acepto términos y condiciones
                     </label>
                 </div>
 
-                <button type="button" class="btn btn-dark w-100">
+                <button type="submit" class="btn btn-dark w-100">
                     Enviar
                 </button>
 
