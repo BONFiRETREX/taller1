@@ -12,7 +12,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="{{ route('inicio') }}">Café Informativo</a>
+    <a class="navbar-brand" href="{{ route('inicio') }}">Concesionario</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
       <span class="navbar-toggler-icon"></span>
@@ -24,6 +24,19 @@
         <li class="nav-item"><a class="nav-link" href="{{ route('menu') }}">Menú</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('nosotros') }}">Nosotros</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('contacto') }}">Contacto</a></li>
+        <li class="nav-item">
+    <a class="nav-link" href="{{ route('mensajes') }}">Mensajes</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="{{ route('autos.create') }}">Solicitar Vehículo</a>
+</li>
+
+
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('autos.index') }}">Solicitudes</a>
+</li>
+
+
       </ul>
     </div>
   </div>

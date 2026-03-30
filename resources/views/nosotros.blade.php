@@ -93,7 +93,12 @@ h2{
 <div class="row justify-content-center">
     <div class="col-md-8">
         <div class="card shadow p-4">
-
+               @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+         
+    </div>
+       @endif
             <form action="{{ route('pqrs.store') }}" method="POST">
                  @csrf
 

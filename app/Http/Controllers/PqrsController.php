@@ -18,15 +18,22 @@ class PqrsController extends Controller
                 'acepto'=> 'accepted'
 
        ]);
-      Pqrs::create([
-    'nombre' => $request->nombres,
-    'apellidos' => $request->apellidos,
-    'correo' => $request->correo,
-    'tipo' => $request->tipo,
-    'mensaje' => $request->mensaje,
-    'estado' => $request->has('acepto')
-]);
-       return redirect()->route('nosotros')->with('success', 'Mensaje guardado correctamente');
+       Pqrs::create([
+                 'nombre'=> $request ->nombres, 
+                'apellidos'=> $request ->apellidos,
+                      'correo'=> $request ->correo,
+                      'tipo'=> $request ->tipo,
+                      'mensaje'=> $request ->mensaje,
+                      'estado'=> $request ->has ('acepto')
+
+       ]);
+       return redirect()->route('nosotros')->with('success', 'Mensaje guardado correctamente ✅');
      }
+     public function index(){
+ 
+     $pqrs = Pqrs::latest()->get();
+  
+    return view('mensajes', compact('pqrs'));
+}
 
 }
