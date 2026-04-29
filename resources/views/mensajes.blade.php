@@ -17,15 +17,38 @@
                     <th>Tipo</th>
                     <th>Mensaje</th>
                     <th>Fecha</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @forelse($pqrs as $index => $item)
+                @forelse($items as $index => $item)
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $item->nombre }}</td>
                         <td>{{ $item->apellido }}</td>
                         <td>{{ $item->correo }}</td>
+                       
+                      <!-- EDITAR -->
+                    <a href="{{ route('mensajes.edit', $item->id) }}" 
+                       class="btn btn-warning btn-sm">
+                        Editar
+                    </a>
+
+                    <!-- ELIMINAR -->
+                    <form action="{{ route('mensajes.destroy', $item->id) }}" 
+                          method="POST" 
+                          style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                            <button type=submit" class="btn btn-danger btn-sm"
+                                onclick="return confirm('¿Seguro que deseas eliminar este mensaje?')">
+                                Eliminar
+                            </button>
+                        </form>
+                        
+                        </td>
+
+
                         <td>
                             <span class="badge 
                                 @if($item->tipo == 'Queja') bg-danger
@@ -37,6 +60,7 @@
                         </td>
                         <td class="text-start">{{ $item->mensaje }}</td>
                         <td>{{ $item->created_at->format('d/m/Y H:i') }}</td>
+                       
                     </tr>
                 @empty
                     <tr>

@@ -25,7 +25,7 @@
         <li class="nav-item"><a class="nav-link" href="{{ route('nosotros') }}">Nosotros</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('contacto') }}">Contacto</a></li>
         <li class="nav-item">
-    <a class="nav-link" href="{{ route('mensajes') }}">Mensajes</a>
+    <a class="nav-link" href="{{ route('mensajes.index') }}">Mensajes</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="{{ route('autos.create') }}">Solicitar Vehículo</a>

@@ -15,5 +15,6 @@ class Pqrs extends Model
     'tipo',
     'mensaje',
     'estado'
+    
 ];
 }
