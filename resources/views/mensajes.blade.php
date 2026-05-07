@@ -21,11 +21,11 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse($items as $index => $item)
+               @forelse($pqrs as $index => $item)
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $item->nombre }}</td>
-                        <td>{{ $item->apellido }}</td>
+                        <td>{{ $item->apellidos }}</td>
                         <td>{{ $item->correo }}</td>
                        
                       <!-- EDITAR -->
