@@ -34,3 +34,5 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+Route::post('/pqrs', [PqrsController::class, 'store'])->name('pqrs.store');
+
